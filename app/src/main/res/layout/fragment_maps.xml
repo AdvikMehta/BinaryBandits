@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Referenced: https://www.geeksforgeeks.org/how-to-add-searchview-in-google-maps-in-android/ -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_black"
+    android:foregroundTint="#333333"
+    tools:context=".MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        map:mapType="hybrid"
+        map:uiCompass="true"
+        map:uiMapToolbar="true"
+        map:liteMode="false"
+        map:uiZoomControls="true">
+    </androidx.fragment.app.FragmentContainerView>
+
+    <Button
+        android:id="@+id/search_view_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="5dp"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/map_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        app:queryHint="Search here"/>
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/map_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_search_view"
+        android:valueFrom="1"
+        android:valueTo="100"
+        android:theme="@style/Theme.Material3.Dark" />
+
+</RelativeLayout>
